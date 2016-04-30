@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MotivateMe</string>
+    <string name="app_name">Motivate Me</string>
     <string name="title_activity_login">LoginActivity</string>
-    <string name="no_account_yet">No account yet? Click to create one</string>
+    <string name="no_account_yet">No account yet? Click here to create one</string>
 </resources>

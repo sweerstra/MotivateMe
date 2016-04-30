@@ -21,10 +21,11 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/motivate_me_logo" />
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/motivate_me_icon_transparent" />
 
         <EditText
             android:id="@+id/etLoginEmail"
@@ -57,17 +58,19 @@
             android:textSize="20sp" />
 
         <Button
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/loginButtonColor"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/loginDarkerBlue"
             android:text="Login"
             android:textColor="@color/white"
             android:textSize="20sp" />
         <!--border todo-->
 
         <TextView
+            android:id="@+id/tvCreateAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/no_account_yet"
