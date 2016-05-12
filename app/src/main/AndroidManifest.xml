@@ -23,6 +23,14 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ProgressActivity"
+            android:label="@string/title_activity_progress"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GoalsActivity"
+            android:label="@string/title_activity_goals"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
