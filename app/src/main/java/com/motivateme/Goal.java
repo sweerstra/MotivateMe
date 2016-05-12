@@ -1,6 +1,8 @@
 package com.motivateme;
 
-public class Goal {
+import java.io.Serializable;
+
+public class Goal implements Serializable {
 
     private String name;
     private int points;

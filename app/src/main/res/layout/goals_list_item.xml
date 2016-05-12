@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/goalPoints"
-        android:layout_width="0dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:padding="18dp"
@@ -21,9 +21,9 @@
         android:id="@+id/goalName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
         android:layout_weight="4"
         android:padding="18dp"
-        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
