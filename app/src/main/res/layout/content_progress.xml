@@ -25,6 +25,7 @@
         android:progressDrawable="@drawable/circle" />
 
     <TextView
+        android:id="@+id/progressText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignBottom="@id/progressBar"
@@ -34,7 +35,6 @@
         android:layout_marginBottom="20dp"
         android:background="#00000000"
         android:gravity="center"
-        android:text="400/500"
         android:textColor="@color/white"
         android:textSize="30sp" />
 
@@ -47,7 +47,6 @@
             android:id="@+id/tvGoalLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fkodkdodkd"
             android:textColor="@color/white"
             android:textSize="28sp" />
 
@@ -62,7 +61,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="You already lost 20 pounds!"
             android:textColor="@color/white"
             android:textSize="25sp" />
 
