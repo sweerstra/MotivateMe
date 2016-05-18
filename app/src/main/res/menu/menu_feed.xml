@@ -9,4 +9,10 @@
         android:title="Search feed"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/action_create"
+        android:icon="@drawable/ic_create_white_24dp"
+        android:title="Create post"
+        app:showAsAction="ifRoom" />
+
 </menu>

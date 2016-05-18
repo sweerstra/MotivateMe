@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(getResources().getColor(R.color.testDarkRed));
+        window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
 
         final EditText mLoginEmail = (EditText) findViewById(R.id.etLoginEmail);
         final EditText mLoginPassword = (EditText) findViewById(R.id.etLoginPassword);

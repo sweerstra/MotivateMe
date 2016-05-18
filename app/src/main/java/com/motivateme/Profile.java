@@ -1,9 +1,11 @@
 package com.motivateme;
 
+import java.io.Serializable;
+
 /**
  * Created by Sjoerd on 18-5-2016.
  */
-public class Profile {
+public class Profile implements Serializable {
 
     private String username;
     private String name;
@@ -16,7 +18,6 @@ public class Profile {
         this.age = age;
         this.profilePicture = profilePicture;
     }
-
 
     public int getAge() {
         return age;
