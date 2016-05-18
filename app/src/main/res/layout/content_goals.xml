@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/newBlue"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.motivateme.GoalsActivity"
     tools:showIn="@layout/activity_goals">
@@ -13,7 +12,6 @@
         android:id="@+id/lvGoals"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/white"
         android:dividerHeight="1dp">
 
     </ListView>

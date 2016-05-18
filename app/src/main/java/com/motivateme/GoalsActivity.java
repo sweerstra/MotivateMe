@@ -1,12 +1,8 @@
 package com.motivateme;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 public class GoalsActivity extends AppCompatActivity {
 
@@ -17,7 +13,7 @@ public class GoalsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ListView mGoals = (ListView) findViewById(R.id.lvGoals);
+        /*ListView mGoals = (ListView) findViewById(R.id.lvGoals);
         final Goal[] goals = {
                 new Goal("Lose 20 pounds", 300), new Goal("Get a fat % of 15", 800), new Goal("Some goal", 400)
         };
@@ -28,6 +24,6 @@ public class GoalsActivity extends AppCompatActivity {
                 startActivity(new Intent(GoalsActivity.this, ProgressActivity.class)
                         .putExtra("goal", goals[position]));
             }
-        });
+        });*/
     }
 }

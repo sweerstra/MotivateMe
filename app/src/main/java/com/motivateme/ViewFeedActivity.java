@@ -1,10 +1,16 @@
 package com.motivateme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ViewFeedActivity extends AppCompatActivity {
@@ -24,7 +30,23 @@ public class ViewFeedActivity extends AppCompatActivity {
         FeedItem feedItem = (FeedItem) getIntent().getSerializableExtra("feedItem");
         Profile p = feedItem.getProfile();
         getSupportActionBar().setTitle(p.getName());
+        ImageView mPicture = (ImageView) findViewById(R.id.viewPicture);
+        mPicture.setImageResource(feedItem.getPicture());
+        ListView mCurrentGoal = (ListView) findViewById(R.id.lvCurrentGoal);
+        TextView mTitle = (TextView) findViewById(R.id.viewTitle);
+        mTitle.setText(feedItem.getTitle());
 
+        final Goal[] goals = {
+                feedItem.getWorkingGoal()
+        };
+        mCurrentGoal.setAdapter(new GoalListAdapter(this, goals));
+        mCurrentGoal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(ViewFeedActivity.this, ProgressActivity.class)
+                        .putExtra("goal", goals[position]));
+            }
+        });
     }
 
     @Override
