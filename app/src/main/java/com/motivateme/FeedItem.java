@@ -1,18 +1,16 @@
 package com.motivateme;
 
-import android.graphics.drawable.BitmapDrawable;
-
 import java.io.Serializable;
 
 public class FeedItem implements Serializable {
 
     private String title;
-    private BitmapDrawable picture;
+    private int picture;
     private String description;
     private Goal workingGoal;
     private Profile profile;
 
-    public FeedItem(String title, BitmapDrawable picture, String description, Goal workingGoal, Profile profile) {
+    public FeedItem(String title, int picture, String description, Goal workingGoal, Profile profile) {
 
         this.title = title;
         this.picture = picture;
@@ -25,7 +23,7 @@ public class FeedItem implements Serializable {
         return title;
     }
 
-    public BitmapDrawable getPicture() {
+    public int getPicture() {
         return picture;
     }
 

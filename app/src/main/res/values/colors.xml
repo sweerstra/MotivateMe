@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#003364</color>
-    <color name="colorPrimaryDark">#003364</color>
+    <color name="colorPrimaryDark">#AD1818</color>
     <color name="colorAccent">#FF4081</color>
     <color name="loginBlue">#4F6CFF</color>
     <color name="loginHint">#AAA9B0</color>
@@ -10,4 +10,12 @@
     <color name="lightgrey">#a6a6a6</color>
     <color name="newBlue">#294357</color>
     <color name="white">#fff</color>
+    <color name="black">#000</color>
+
+    <color name="testDark">#343433</color>
+    <color name="testYellow">#FEC24E</color>
+    <color name="testOrange">#E9874F</color>
+    <color name="testRed">#EF5858</color>
+    <color name="testDarkRed">#D73333</color>
+    <color name="testDark2">#3C3C43</color>
 </resources>

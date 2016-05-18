@@ -4,6 +4,6 @@
     <string name="no_account_yet">No account yet? Click here to create one</string>
     <string name="title_activity_progress">Progress</string>
     <string name="title_activity_goals">Goals</string>
-    <string name="title_activity_daily_feed">DailyFeedActivity</string>
+    <string name="title_activity_daily_feed"></string>
     <string name="title_activity_view_feed">ViewFeedActivity</string>
 </resources>
