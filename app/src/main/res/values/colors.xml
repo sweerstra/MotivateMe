@@ -8,5 +8,6 @@
     <color name="loginDarkBlue">#004080</color>
     <color name="loginDarkerBlue">#003364</color>
     <color name="lightgrey">#a6a6a6</color>
+    <color name="newBlue">#294357</color>
     <color name="white">#fff</color>
 </resources>
