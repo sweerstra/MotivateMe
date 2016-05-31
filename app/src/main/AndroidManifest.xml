@@ -19,6 +19,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProgressActivity"
@@ -29,14 +30,9 @@
             android:label="@string/title_activity_goals"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ViewFeedActivity"
-            android:label="@string/title_activity_view_feed"
-            android:parentActivityName=".DailyFeedActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

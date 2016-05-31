@@ -14,7 +14,7 @@ public class SplashScreen extends AppCompatActivity {
        /* boolean check = getSharedPreferences("com.motivateme.data", Context.MODE_PRIVATE)
                 .getBoolean("login-confirmation", true);*/
 
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 }
