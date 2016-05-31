@@ -29,10 +29,6 @@
             android:label="@string/title_activity_goals"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".DailyFeedActivity"
-            android:label="@string/title_activity_daily_feed"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".ViewFeedActivity"
             android:label="@string/title_activity_view_feed"
             android:parentActivityName=".DailyFeedActivity"
