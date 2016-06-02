@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity
 
         switch (id) {
             case R.id.nav_challenge_yourself:
-                startActivity(new Intent(this, ChallengeYourselfActivity.class));
+                startActivity(new Intent(this, BattleAthleteActivity.class));
                 break;
             case R.id.nav_goals:
                 //intent = new Intent(this, )

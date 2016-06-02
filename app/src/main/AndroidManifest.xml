@@ -41,10 +41,15 @@
         <activity
             android:name=".VoiceMotivationActivity"
             android:label="@string/title_activity_voice_motivation"
-            android:theme="@style/AppTheme.NoActionBar"></activity>        <activity
-        android:name=".ChallengeYourselfActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChallengeYourselfActivity"
             android:label="@string/title_activity_challenge_yourself"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BattleAthleteActivity"
+            android:label="@string/title_activity_battle_athlete"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
