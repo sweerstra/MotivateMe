@@ -42,7 +42,7 @@
             android:name=".VoiceMotivationActivity"
             android:label="@string/title_activity_voice_motivation"
             android:theme="@style/AppTheme.NoActionBar"></activity>        <activity
-            android:name=".ChallengeYourself"
+        android:name=".ChallengeYourselfActivity"
             android:label="@string/title_activity_challenge_yourself"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>

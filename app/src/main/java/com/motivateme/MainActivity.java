@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity
         Intent intent;
 
         switch (id) {
-            case R.id.nav_training_field:
-                startActivity(new Intent(this, VoiceMotivationActivity.class));
+            case R.id.nav_challenge_yourself:
+                startActivity(new Intent(this, ChallengeYourselfActivity.class));
                 break;
             case R.id.nav_goals:
                 //intent = new Intent(this, )

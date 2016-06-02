@@ -3,9 +3,9 @@
 
     <group android:checkableBehavior="none">
         <item
-            android:id="@+id/nav_training_field"
+            android:id="@+id/nav_challenge_yourself"
             android:icon="@drawable/ic_directions_run_black_24dp"
-            android:title="Training Field" />
+            android:title="Challenge Yourself" />
         <item
             android:id="@+id/nav_goals"
             android:icon="@drawable/ic_timer_black_24dp"

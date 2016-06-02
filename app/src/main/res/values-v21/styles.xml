@@ -5,4 +5,8 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
+
+    <style name="horizontal_margin">
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
 </resources>
