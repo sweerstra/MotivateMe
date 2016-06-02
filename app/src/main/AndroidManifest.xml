@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.motivateme">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_icon"
@@ -38,6 +40,13 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
+
+
+
+        <activity
+            android:name=".ChallengeYourself"
+            android:label="@string/title_activity_challenge_yourself"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
