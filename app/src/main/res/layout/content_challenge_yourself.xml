@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ChallengeYourselfActivity"
     tools:showIn="@layout/activity_challenge_yourself">
@@ -21,177 +17,204 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp">
 
             <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-        android:text="Boxers"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/white"
+                android:text="Boxers"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
                 android:textSize="20sp"
-        android:textStyle="bold" />
+                android:textStyle="bold" />
 
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp">
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/horizontal_margin"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/mcgregor" />
+
+                    <ImageView
+                        style="@style/horizontal_margin"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/mcgregor" />
+
+                    <ImageView
+                        style="@style/horizontal_margin"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/mcgregor" />
+
+                    <ImageView
+                        style="@style/horizontal_margin"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/mcgregor" />
+
+                    <ImageView
+                        style="@style/horizontal_margin"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/mcgregor" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Trackstars"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/ironmike2"
                     style="@style/horizontal_margin"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     android:scaleType="fitStart"
-                    android:src="@drawable/mcgregor" />
+                    android:src="@drawable/usain_bolt" />
 
                 <ImageView
-                    android:id="@+id/ironmike3"
                     style="@style/horizontal_margin"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     android:scaleType="fitStart"
-                    android:src="@drawable/ali" />
+                    android:src="@drawable/usain_bolt" />
 
                 <ImageView
-                    android:id="@+id/ironmike"
                     style="@style/horizontal_margin"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     android:scaleType="fitStart"
-                    android:src="@drawable/mcgregor" />
+                    android:src="@drawable/usain_bolt" />
+
+                <ImageView
+                    style="@style/horizontal_margin"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/usain_bolt" />
+
+                <ImageView
+                    style="@style/horizontal_margin"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/usain_bolt" />
 
             </LinearLayout>
         </HorizontalScrollView>
 
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Trackstars"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp">
-
-        <LinearLayout
+            <TextView
+                android:id="@+id/textView4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Soccer stars"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/usain"
-                style="@style/horizontal_margin"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:scaleType="fitStart"
-                android:src="@drawable/usain_bolt" />
-
-            <ImageView
-                android:id="@+id/usain2"
-                style="@style/horizontal_margin"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:scaleType="fitStart"
-                android:src="@drawable/usain_bolt" />
-
-            <ImageView
-                android:id="@+id/usain3"
-                style="@style/horizontal_margin"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:scaleType="fitStart"
-                android:src="@drawable/usain_bolt" />
-
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Soccer stars"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp">
-
-        <LinearLayout
+            <HorizontalScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp">
 
-            <ImageView
-                android:id="@+id/soccer"
-                style="@style/horizontal_margin"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:scaleType="fitStart"
-                android:src="@drawable/john_cena" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/soccer2"
-                style="@style/horizontal_margin"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:scaleType="fitStart"
-                android:src="@drawable/john_cena" />
+                    <ImageView
+                        style="@style/horizontal_margin"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/john_cena" />
 
-            <ImageView
-                android:id="@+id/soccer3"
-                style="@style/horizontal_margin"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:scaleType="fitStart"
-                android:src="@drawable/cr7" />
+                    <ImageView
+                        style="@style/horizontal_margin"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/john_cena" />
 
-            <ImageView
-                android:id="@+id/soccer4"
-                style="@style/horizontal_margin"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:scaleType="fitStart"
-                android:src="@drawable/john_cena" />
+                    <ImageView
+                        style="@style/horizontal_margin"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/john_cena" />
 
-            <ImageView
-                android:id="@+id/soccer5"
-                style="@style/horizontal_margin"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:scaleType="fitStart"
-                android:src="@drawable/john_cena" />
+                    <ImageView
+                        style="@style/horizontal_margin"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/john_cena" />
+
+                    <ImageView
+                        style="@style/horizontal_margin"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/john_cena" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
 
         </LinearLayout>
-    </HorizontalScrollView>
-        </LinearLayout>
+
     </ScrollView>
+
 </LinearLayout>
 
