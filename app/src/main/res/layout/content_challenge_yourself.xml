@@ -14,20 +14,30 @@
     tools:context=".ChallengeYourselfActivity"
     tools:showIn="@layout/activity_challenge_yourself">
 
-    <TextView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
         android:text="Boxers"
-        android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/white"
-        android:textSize="26sp"
+                android:textSize="20sp"
         android:textStyle="bold" />
 
     <HorizontalScrollView
-            android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -68,16 +78,17 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="Trackstars"
-        android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/white"
-        android:textSize="26sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <HorizontalScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -117,16 +128,17 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="Soccer stars"
-        android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/white"
-        android:textSize="32sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <HorizontalScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -179,7 +191,7 @@
 
         </LinearLayout>
     </HorizontalScrollView>
-
-
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
 
