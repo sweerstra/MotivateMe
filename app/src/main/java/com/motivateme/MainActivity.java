@@ -96,19 +96,27 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Intent intent;
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        switch (id) {
+            case R.id.nav_training_field:
+                startActivity(new Intent(this, VoiceMotivationActivity.class));
+                break;
+            case R.id.nav_goals:
+                //intent = new Intent(this, )
+                break;
+            case R.id.nav_tag_friend:
+                //intent = new Intent(this, )
+                break;
+            case R.id.nav_friends:
+                //intent = new Intent(this, )
+                break;
+            case R.id.nav_rewards:
+                //intent = new Intent(this, )
+                break;
+            case R.id.nav_settings:
+                //intent = new Intent(this, )
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
