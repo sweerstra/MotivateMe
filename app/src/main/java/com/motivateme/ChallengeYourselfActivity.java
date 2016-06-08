@@ -1,8 +1,10 @@
 package com.motivateme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 public class ChallengeYourselfActivity extends AppCompatActivity {
 
@@ -13,6 +15,24 @@ public class ChallengeYourselfActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-    }
+        findViewById(R.id.ivBolt).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChallengeYourselfActivity.this, BattleAthleteActivity.class);
+                intent.putExtra("seconds", 9.58);
+                intent.putExtra("metres", 100);
+                startActivity(intent);
+            }
+        });
 
+        findViewById(R.id.ivKimetto).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChallengeYourselfActivity.this, BattleAthleteActivity.class);
+                intent.putExtra("seconds", 1500);
+                intent.putExtra("metres", 10000);
+                startActivity(intent);
+            }
+        });
+    }
 }
