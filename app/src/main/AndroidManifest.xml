@@ -60,7 +60,6 @@
         <activity
             android:name=".BattleActivity"
             android:label="@string/title_activity_battle"
-            android:parentActivityName=".BattleAthleteActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

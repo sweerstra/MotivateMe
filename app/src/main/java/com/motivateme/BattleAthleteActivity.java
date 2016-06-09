@@ -24,7 +24,7 @@ public class BattleAthleteActivity extends AppCompatActivity {
         }
 
         Intent current = getIntent();
-        final double time = current.getDoubleExtra("time", 0);
+        final double time = current.getDoubleExtra("seconds", 0);
         final int distance = current.getIntExtra("distance", 0);
         final int picture = current.getIntExtra("picture", 0);
         final String name = current.getStringExtra("name");
@@ -42,13 +42,11 @@ public class BattleAthleteActivity extends AppCompatActivity {
                 intent.putExtra("difficulty", mDifficulty.getText());
                 intent.putExtra("quotes", mQuotes.isChecked());
                 intent.putExtra("midraceresults", mMidRaceResults.isChecked());
-                intent.putExtra("time", time);
+                intent.putExtra("seconds", time);
                 intent.putExtra("distance", distance);
                 startActivity(intent);
             }
         });
-
-
     }
 
 }

@@ -39,8 +39,6 @@ public class ChallengeYourselfActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ChallengeYourselfActivity.this, BattleAthleteActivity.class);
-                intent.putExtra("seconds", 1500);
-                intent.putExtra("distance", 10000);
                 intent.putExtra("name", "Dennis Kimetto");
                 intent.putExtra("picture", R.drawable.kimetto);
                 startActivity(intent);
