@@ -93,6 +93,7 @@
         </LinearLayout>
 
         <Switch
+            android:id="@+id/switchAudioQuotes"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -139,6 +140,7 @@
         </LinearLayout>
 
         <Switch
+            android:id="@+id/switchMidRaceResults"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -154,6 +156,7 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/btnStartBattle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/raised_button"

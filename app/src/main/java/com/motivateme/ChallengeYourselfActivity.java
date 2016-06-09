@@ -20,7 +20,7 @@ public class ChallengeYourselfActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ChallengeYourselfActivity.this, BattleAthleteActivity.class);
                 intent.putExtra("seconds", 9.58);
-                intent.putExtra("metres", 100);
+                intent.putExtra("distance", 100);
                 startActivity(intent);
             }
         });
@@ -30,7 +30,7 @@ public class ChallengeYourselfActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ChallengeYourselfActivity.this, BattleAthleteActivity.class);
                 intent.putExtra("seconds", 1500);
-                intent.putExtra("metres", 10000);
+                intent.putExtra("distance", 10000);
                 startActivity(intent);
             }
         });

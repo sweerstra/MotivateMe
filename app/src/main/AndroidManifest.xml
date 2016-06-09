@@ -55,6 +55,10 @@
             android:name=".PostMessageActivity"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BattleActivity"
+            android:label="@string/title_activity_battle"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
