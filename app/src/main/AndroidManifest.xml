@@ -50,6 +50,10 @@
             android:name=".BattleAthleteActivity"
             android:label="@string/title_activity_battle_athlete"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PostMessageActivity"
+            android:parentActivityName=".PostMessageActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
