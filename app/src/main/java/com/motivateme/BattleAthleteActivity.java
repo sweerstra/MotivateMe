@@ -18,6 +18,11 @@ public class BattleAthleteActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
         Intent current = getIntent();
         final double time = current.getDoubleExtra("time", 0);
         final int distance = current.getIntExtra("distance", 0);

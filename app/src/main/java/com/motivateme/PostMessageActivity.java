@@ -24,8 +24,6 @@ public class PostMessageActivity extends AppCompatActivity
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
-
     }
 
     @Override

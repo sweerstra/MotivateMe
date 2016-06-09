@@ -45,10 +45,12 @@
         <activity
             android:name=".ChallengeYourselfActivity"
             android:label="@string/title_activity_challenge_yourself"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BattleAthleteActivity"
             android:label="@string/title_activity_battle_athlete"
+            android:parentActivityName=".ChallengeYourselfActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SetYourGoalActivity" />
         <activity
@@ -58,7 +60,8 @@
         <activity
             android:name=".BattleActivity"
             android:label="@string/title_activity_battle"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:parentActivityName=".BattleAthleteActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

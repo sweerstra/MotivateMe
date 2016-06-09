@@ -15,6 +15,11 @@ public class ChallengeYourselfActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
         findViewById(R.id.ivBolt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
