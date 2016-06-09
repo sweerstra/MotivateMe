@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(this, ChallengeYourselfActivity.class));
                 break;
             case R.id.nav_goals:
-                //intent = new Intent(this, )
+                intent = new Intent(this,SetYourGoalActivity.class);
                 break;
             case R.id.nav_tag_friend:
                 //intent = new Intent(this, )
