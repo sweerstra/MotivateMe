@@ -26,6 +26,8 @@ public class BattleAthleteActivity extends AppCompatActivity {
         Intent current = getIntent();
         final double time = current.getDoubleExtra("time", 0);
         final int distance = current.getIntExtra("distance", 0);
+        final int picture = current.getIntExtra("picture", 0);
+        final String name = current.getStringExtra("name");
 
         findViewById(R.id.btnStartBattle).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +37,8 @@ public class BattleAthleteActivity extends AppCompatActivity {
                 RadioButton mDifficulty = (RadioButton) findViewById(rgDifficulty.getCheckedRadioButtonId());
                 Switch mQuotes = (Switch) findViewById(R.id.switchAudioQuotes);
                 Switch mMidRaceResults = (Switch) findViewById(R.id.switchMidRaceResults);
+                intent.putExtra("picture", picture);
+                intent.putExtra("name", name);
                 intent.putExtra("difficulty", mDifficulty.getText());
                 intent.putExtra("quotes", mQuotes.isChecked());
                 intent.putExtra("midraceresults", mMidRaceResults.isChecked());
