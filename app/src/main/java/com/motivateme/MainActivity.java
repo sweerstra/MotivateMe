@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_postmessage);
+                //setContentView(R.layout.activity_postmessage);
+                startActivities(new Intent[]{new Intent(MainActivity.this, PostMessageActivity.class)});
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 //.setAction("Action", null).show();
             }

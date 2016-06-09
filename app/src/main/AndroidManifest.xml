@@ -52,7 +52,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".PostMessageActivity"
-            android:parentActivityName=".PostMessageActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
