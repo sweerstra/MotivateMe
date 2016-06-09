@@ -17,6 +17,7 @@
     <string name="title_activity_trophy">TrophyActivity</string>
     <string name="hello_world">Hello World!</string>
     <string name="title_activity_challenge_yourself">Challenge Yourself</string>
+    <string name="post">Post</string>
     <string name="title_activity_voice_motivation">VoiceMotivationActivity</string>
     <string name="title_activity_battle_athlete">Battle Settings</string>
     <string name="battle_settings_quotes">During the battle you will hear quotes said by famous sport athletes and experts</string>
