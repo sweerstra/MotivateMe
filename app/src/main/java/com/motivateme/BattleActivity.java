@@ -1,6 +1,11 @@
 package com.motivateme;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
@@ -13,11 +18,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class BattleActivity extends AppCompatActivity implements Chronometer.OnChronometerTickListener {
+public class BattleActivity extends AppCompatActivity implements Chronometer.OnChronometerTickListener, SensorEventListener {
 
+    boolean activityRunning;
     private Chronometer mChronometer;
     private Button mConfirm;
     private String target;
+    private SensorManager sensorManager;
+    private TextView mSteps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +33,9 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
         setContentView(R.layout.activity_battle);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSteps = (TextView) findViewById(R.id.tvSteps);
 
         Toast.makeText(BattleActivity.this, "Press the floating action button to start the battle", Toast.LENGTH_LONG).show();
 
@@ -79,6 +90,37 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
         });
 
         mChronometer.setOnChronometerTickListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        activityRunning = true;
+        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        if (countSensor != null) {
+            sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_UI);
+        } else {
+            Toast.makeText(this, "Count sensor not available!", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        activityRunning = false;
+        sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (activityRunning) {
+            mSteps.setText(String.valueOf(Math.round(event.values[0])));
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 
     public void startTimer() {
