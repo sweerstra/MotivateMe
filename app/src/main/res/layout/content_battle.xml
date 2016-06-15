@@ -16,30 +16,40 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/ivBattlePartnerPic"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tvPartnerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Not available: "
                 android:textColor="@color/colorAccent"
-                android:textSize="28sp" />
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tvPartnerTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:text="9.58"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tvDifficulty"
@@ -47,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:text="Mode"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
         </LinearLayout>
 
@@ -60,16 +70,16 @@
         android:layout_marginTop="16dp"
         android:background="@color/colorAccent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!-- <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/ivRaceMeter"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+         <ImageView
+             android:id="@+id/ivRaceMeter"
+             android:layout_width="40dp"
+             android:layout_height="40dp" />
 
-    </LinearLayout>
+     </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -92,14 +102,6 @@
             android:text="24:23"
             android:textColor="@color/colorAccent"
             android:textSize="66sp" />
-
-        <TextView
-            android:id="@+id/tvPartnerTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Original:"
-            android:textColor="@color/colorAccent"
-            android:textSize="34sp" />
 
     </LinearLayout>
 

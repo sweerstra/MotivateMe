@@ -6,7 +6,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
@@ -20,7 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class BattleActivity extends AppCompatActivity implements Chronometer.OnChronometerTickListener, SensorEventListener {
+public class BattleActivity extends AppCompatActivity implements SensorEventListener {
 
     boolean activityRunning;
     private Chronometer mChronometer;
@@ -29,7 +28,7 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
     private int animationTime;
     private SensorManager sensorManager;
     private TextView mSteps;
-    private ImageView mTarget;
+    private ImageView mPicture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,28 +39,24 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mSteps = (TextView) findViewById(R.id.tvSteps);
-        mTarget = (ImageView) findViewById(R.id.ivRaceMeter);
-
-        Toast.makeText(BattleActivity.this, "Press the floating action button to start the battle", Toast.LENGTH_LONG).show();
 
         mChronometer = (Chronometer) findViewById(R.id.cmTimer);
         Intent current = getIntent();
-        ImageView mPicture = (ImageView) findViewById(R.id.ivBattlePartnerPic);
+        mPicture = (ImageView) findViewById(R.id.ivBattlePartnerPic);
 
         TextView mPartnerName = (TextView) findViewById(R.id.tvPartnerName);
         String name = current.getStringExtra("name");
         mPartnerName.setText(name);
         TextView mDifficulty = (TextView) findViewById(R.id.tvDifficulty);
         String difficulty = current.getStringExtra("difficulty");
-        mDifficulty.setText(difficulty + " Mode");
+        mDifficulty.setText(difficulty);
         mPicture.setImageResource(current.getIntExtra("picture", 0));
-        mTarget.setImageResource(current.getIntExtra("picture", 0));
 
         mConfirm = (Button) findViewById(R.id.btnConfirmTime);
         TextView mTargetTime = (TextView) findViewById(R.id.tvTargetTime);
         double targetTime = current.getDoubleExtra("seconds", 0);
         TextView mPartnerTime = (TextView) findViewById(R.id.tvPartnerTime);
-        mPartnerTime.setText(String.format("Orig. %s", targetTime));
+        mPartnerTime.setText(String.valueOf(targetTime));
 
         if (name.equals("Usain Bolt")) {
             animationTime = (int) Math.ceil(getSprintTarget(difficulty, targetTime));
@@ -92,12 +87,19 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
         mConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(BattleActivity.this, ProgressActivity.class)
+                        .putExtra("time", mChronometer.getText()));
                 stopTimer();
-                Toast.makeText(BattleActivity.this, mChronometer.getText(), Toast.LENGTH_SHORT).show();
+
             }
         });
 
-        mChronometer.setOnChronometerTickListener(this);
+        mChronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) {
+                endTimeReached(chronometer);
+            }
+        });
     }
 
     @Override
@@ -132,23 +134,24 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
     }
 
     public void startTimer() {
-        SoundMethod method = new SoundMethod();
+        /*SoundMethod method = new SoundMethod();
         method.soundPlayer(getBaseContext(), R.raw.start_sequence_cut);
         method.start();
         method.getPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                resetTimer();
-                mChronometer.start();
-                mConfirm.setVisibility(View.VISIBLE);
-                animate(animationTime);
+                //comes here
+
             }
-        });
+        });*/
+        resetTimer();
+        mChronometer.start();
+        animate(animationTime);
+        mConfirm.setVisibility(View.VISIBLE);
     }
 
     public void stopTimer() {
         mChronometer.stop();
-        resetTimer();
     }
 
     public void resetTimer() {
@@ -183,21 +186,20 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
     }
 
     public void animate(int targetTime) {
-        TranslateAnimation animation = new TranslateAnimation(0.0f, 850.0f,
-                0.0f, 0.0f);          //  new TranslateAnimation(xFrom,xTo, yFrom,yTo)
-        animation.setDuration(targetTime * 1000);  // animation duration
-        mTarget.startAnimation(animation);  // start animation
+        TranslateAnimation animation = new TranslateAnimation(0.0f, 800.0f, 0.0f, 0.0f);
+        animation.setDuration(targetTime * 1000);
+        mPicture.startAnimation(animation);
         //mTarget.clearAnimation();
     }
 
-    @Override
-    public void onChronometerTick(Chronometer chronometer) {
-        if (mChronometer.getText().equals("00:" + target)) {
+    public void endTimeReached(Chronometer chronometer) {
+        String targetText = "00:" + target;
+        if (chronometer.getText().equals(targetText)) {
             stopTimer();
-            mChronometer.setTextColor(getResources().getColor(R.color.colorAccent));
-            SoundMethod method = new SoundMethod();
+            //chronometer.setTextColor(getResources().getColor(R.color.colorAccent));
+            /*SoundMethod method = new SoundMethod();
             method.soundPlayer(getBaseContext(), R.raw.mario_dies);
-            method.start();
+            method.start();*/
         }
 
         /*int halfway = Integer.parseInt(target) / 2;
