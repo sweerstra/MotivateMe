@@ -16,6 +16,7 @@
         android:weightSum="1">
 
         <ImageView
+            android:id="@+id/imgViewPost"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="15dp"
