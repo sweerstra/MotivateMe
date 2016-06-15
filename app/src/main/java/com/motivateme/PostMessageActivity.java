@@ -19,6 +19,7 @@ public class PostMessageActivity extends AppCompatActivity {
     private final static int PICK_PHOTO_CODE = 0;
     private final static int CAMERA_REQUESTED = 2;
     private EditText postText;
+    private EditText titleText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class PostMessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_postmessage);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         postText = (EditText) findViewById(R.id.editTextPost);
+        titleText = (EditText) findViewById(R.id.editTextPostTitle);
         setSupportActionBar(toolbar);
 
         if (getSupportActionBar() != null) {
@@ -73,6 +75,7 @@ public class PostMessageActivity extends AppCompatActivity {
             case R.id.action_add_post:
                 Intent intent1 = new Intent(this, MainActivity.class);
                 intent1.putExtra("text", postText.getText());
+                intent1.putExtra("title", titleText.getText());
                 startActivity(intent1);
             default:
                 return super.onOptionsItemSelected(item);
