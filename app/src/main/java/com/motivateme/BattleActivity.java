@@ -6,12 +6,14 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
@@ -24,8 +26,10 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
     private Chronometer mChronometer;
     private Button mConfirm;
     private String target;
+    private int animationTime;
     private SensorManager sensorManager;
     private TextView mSteps;
+    private ImageView mTarget;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +40,14 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mSteps = (TextView) findViewById(R.id.tvSteps);
+        mTarget = (ImageView) findViewById(R.id.ivRaceMeter);
 
         Toast.makeText(BattleActivity.this, "Press the floating action button to start the battle", Toast.LENGTH_LONG).show();
 
         mChronometer = (Chronometer) findViewById(R.id.cmTimer);
         Intent current = getIntent();
         ImageView mPicture = (ImageView) findViewById(R.id.ivBattlePartnerPic);
+
         TextView mPartnerName = (TextView) findViewById(R.id.tvPartnerName);
         String name = current.getStringExtra("name");
         mPartnerName.setText(name);
@@ -49,6 +55,7 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
         String difficulty = current.getStringExtra("difficulty");
         mDifficulty.setText(difficulty + " Mode");
         mPicture.setImageResource(current.getIntExtra("picture", 0));
+        mTarget.setImageResource(current.getIntExtra("picture", 0));
 
         mConfirm = (Button) findViewById(R.id.btnConfirmTime);
         TextView mTargetTime = (TextView) findViewById(R.id.tvTargetTime);
@@ -57,7 +64,8 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
         mPartnerTime.setText(String.format("Orig. %s", targetTime));
 
         if (name.equals("Usain Bolt")) {
-            target = String.valueOf((int) Math.ceil(getSprintTarget(difficulty, targetTime)));
+            animationTime = (int) Math.ceil(getSprintTarget(difficulty, targetTime));
+            target = String.valueOf(animationTime);
             mTargetTime.setText(String.valueOf(Math.round(getSprintTarget(difficulty, targetTime) * 100.0) / 100.0).replace(".", ":"));
         } else {
             mTargetTime.setText(getMarathonTarget(difficulty));
@@ -124,18 +132,28 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
     }
 
     public void startTimer() {
-        resetTimer();
-        SoundMethod.SoundPlayer(getBaseContext(), R.raw.start_sequence);
-        mChronometer.start();
-        mConfirm.setVisibility(View.VISIBLE);
+        SoundMethod method = new SoundMethod();
+        method.soundPlayer(getBaseContext(), R.raw.start_sequence_cut);
+        method.start();
+        method.getPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                resetTimer();
+                mChronometer.start();
+                mConfirm.setVisibility(View.VISIBLE);
+                animate(animationTime);
+            }
+        });
     }
 
     public void stopTimer() {
         mChronometer.stop();
+        resetTimer();
     }
 
     public void resetTimer() {
         mChronometer.setBase(SystemClock.elapsedRealtime());
+        mChronometer.setTextColor(getResources().getColor(R.color.white));
     }
 
     public String getMarathonTarget(String difficulty) {
@@ -164,11 +182,26 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
         }
     }
 
+    public void animate(int targetTime) {
+        TranslateAnimation animation = new TranslateAnimation(0.0f, 800.0f,
+                0.0f, 0.0f);          //  new TranslateAnimation(xFrom,xTo, yFrom,yTo)
+        animation.setDuration(targetTime * 1000);  // animation duration
+        mTarget.startAnimation(animation);  // start animation
+    }
+
     @Override
     public void onChronometerTick(Chronometer chronometer) {
         if (chronometer.getText().equals("00:" + target)) {
             stopTimer();
             mChronometer.setTextColor(getResources().getColor(R.color.colorAccent));
+            SoundMethod method = new SoundMethod();
+            method.soundPlayer(getBaseContext(), R.raw.mario_dies);
+            method.start();
         }
+
+        /*int halfway = Integer.parseInt(target) / 2;
+        if(chronometer.getText().equals("00" + String.valueOf(halfway))){
+            //TODO halfway there
+        }*/
     }
 }
