@@ -21,7 +21,8 @@
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/ic_camera_alt_black_24dp" />
+            android:background="@drawable/ic_camera_alt_black_24dp"
+            android:src="@drawable/imageview_border" />
 
         <EditText
             android:id="@+id/editText"
