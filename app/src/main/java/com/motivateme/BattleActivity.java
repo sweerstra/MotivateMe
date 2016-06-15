@@ -108,6 +108,7 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
     protected void onPause() {
         super.onPause();
         activityRunning = false;
+        if (SoundMethod.player != null) SoundMethod.player.stop();
         sensorManager.unregisterListener(this);
     }
 
@@ -124,8 +125,8 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
 
     public void startTimer() {
         resetTimer();
+        SoundMethod.SoundPlayer(getBaseContext(), R.raw.start_sequence);
         mChronometer.start();
-
         mConfirm.setVisibility(View.VISIBLE);
     }
 
@@ -148,10 +149,6 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
             default:
                 return "00:00";
         }
-    }
-
-    public void playStartSequence() {
-
     }
 
     public double getSprintTarget(String difficulty, double targetTime) {
