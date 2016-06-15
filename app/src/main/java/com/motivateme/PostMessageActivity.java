@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import java.io.IOException;
@@ -17,12 +18,14 @@ public class PostMessageActivity extends AppCompatActivity {
 
     private final static int PICK_PHOTO_CODE = 0;
     private final static int CAMERA_REQUESTED = 2;
+    private EditText postText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postmessage);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        postText = (EditText) findViewById(R.id.editTextPost);
         setSupportActionBar(toolbar);
 
         if (getSupportActionBar() != null) {
@@ -67,6 +70,10 @@ public class PostMessageActivity extends AppCompatActivity {
                     startActivityForResult(intent, PICK_PHOTO_CODE);
                 }
                 return true;
+            case R.id.action_add_post:
+                Intent intent1 = new Intent(this, MainActivity.class);
+                intent1.putExtra("text", postText.getText());
+                startActivity(intent1);
             default:
                 return super.onOptionsItemSelected(item);
         }

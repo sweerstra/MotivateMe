@@ -8,5 +8,10 @@
         android:icon="@drawable/ic_add_a_photo_black_24dp"
         android:title="Add picture"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_add_post"
+        android:icon="@drawable/ic_done_white_24dp"
+        android:title="Add picture"
+        app:showAsAction="ifRoom" />
 
 </menu>
