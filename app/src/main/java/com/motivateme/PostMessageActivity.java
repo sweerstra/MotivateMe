@@ -3,6 +3,7 @@ package com.motivateme;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -18,8 +19,10 @@ public class PostMessageActivity extends AppCompatActivity {
 
     private final static int PICK_PHOTO_CODE = 0;
     private final static int CAMERA_REQUESTED = 2;
+    private static MainActivity main = new MainActivity();
     private EditText postText;
     private EditText titleText;
+    private Drawable galleryImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class PostMessageActivity extends AppCompatActivity {
         ImageView mPickPhoto = (ImageView) findViewById(R.id.imgViewPost);
         assert mPickPhoto != null;
         mPickPhoto.setBackground(selectedImage);
+        galleryImage = selectedImage;
     }
 
     @Override
@@ -74,8 +78,8 @@ public class PostMessageActivity extends AppCompatActivity {
                 return true;
             case R.id.action_add_post:
                 Intent intent1 = new Intent(this, MainActivity.class);
-                intent1.putExtra("text", postText.getText());
-                intent1.putExtra("title", titleText.getText());
+                intent1.putExtra("text", postText.getText().toString());
+                intent1.putExtra("title", titleText.getText().toString());
                 startActivity(intent1);
             default:
                 return super.onOptionsItemSelected(item);

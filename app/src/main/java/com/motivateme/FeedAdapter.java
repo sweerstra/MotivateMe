@@ -8,8 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class FeedAdapter extends ArrayAdapter<FeedItem> {
-    public FeedAdapter(Context context, FeedItem[] items) {
+    public FeedAdapter(Context context, List<FeedItem> items) {
         super(context, R.layout.feed_list_item, items);
     }
 

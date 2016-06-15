@@ -15,8 +15,13 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private List<FeedItem> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +34,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //setContentView(R.layout.activity_postmessage);
-                startActivities(new Intent[]{new Intent(MainActivity.this, PostMessageActivity.class)});
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //.setAction("Action", null).show();
+                startActivity(new Intent(MainActivity.this, PostMessageActivity.class));
             }
         });
 
@@ -46,19 +48,25 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         ListView mFeed = (ListView) findViewById(R.id.lvDailyFeed);
-        final FeedItem[] items = {
-                new FeedItem("\"I'm very rich\"", R.drawable.donald_trump_workout, "Golfing with Barrack", new Goal("My first hole in one", 800, 0, 1), new Profile("TheDonald", "Donald Trump", 69, R.drawable.donald_trump)),
-                new FeedItem("To succeed, you have to believe everynight in your heart, that you\'re the best", R.drawable.john_cena_workout, "Bench pressing", new Goal("Bench press 500", 800, 485, 500), new Profile("HisNameJohnCena", "John Cena", 38, R.drawable.john_cena)),
-                new FeedItem("Don't think about the start of the race. Think about the ending.", R.drawable.usain_bolt_workout, "Practicing in Kingston", new Goal("100 metres in less than 9.58 seconds", 1000, 9, 10), new Profile("Bolt", "Usain Bolt", 29, R.drawable.usain_bolt)),
-                new FeedItem("Failure is not an option for me. Success is all I envision", R.drawable.mcgregor_workout, "Training to knock Nate Diaz out", new Goal("Do 150 push ups in a row", 700, 102, 150), new Profile("Notorious", "Conor McGregor", 27, R.drawable.mcgregor))
-        };
+        items = new ArrayList();
+        items.add(new FeedItem("\"I'm very rich\"", R.drawable.donald_trump_workout, "Golfing with Barrack", new Goal("My first hole in one", 800, 0, 1), new Profile("TheDonald", "Donald Trump", 69, R.drawable.donald_trump)));
+        items.add(new FeedItem("To succeed, you have to believe everynight in your heart, that you\'re the best", R.drawable.john_cena_workout, "Bench pressing", new Goal("Bench press 500", 800, 485, 500), new Profile("HisNameJohnCena", "John Cena", 38, R.drawable.john_cena)));
+        items.add(new FeedItem("Don't think about the start of the race. Think about the ending.", R.drawable.usain_bolt_workout, "Practicing in Kingston", new Goal("100 metres in less than 9.58 seconds", 1000, 9, 10), new Profile("Bolt", "Usain Bolt", 29, R.drawable.usain_bolt)));
+        items.add(new FeedItem("Failure is not an option for me. Success is all I envision", R.drawable.mcgregor_workout, "Training to knock Nate Diaz out", new Goal("Do 150 push ups in a row", 700, 102, 150), new Profile("Notorious", "Conor McGregor", 27, R.drawable.mcgregor)));
+
+        Intent intent = getIntent();
+        String postText = intent.getStringExtra("text");
+        String postTitle = intent.getStringExtra("title");
+        if (postTitle != null) {
+            items.add(new FeedItem(postTitle, R.drawable.tupac, postText, new Goal("Showing off the app", 10, 10, 10), new Profile("Tupac", "Tupac Shakur", 25, R.drawable.tupac)));
+        }
 
         mFeed.setAdapter(new FeedAdapter(this, items));
         mFeed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 startActivity(new Intent(MainActivity.this, ViewFeedActivity.class)
-                        .putExtra("feedItem", items[position]));
+                        .putExtra("feedItem", items.get(position)));
             }
         });
     }
