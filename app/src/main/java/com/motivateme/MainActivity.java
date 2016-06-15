@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity
         String postText = intent.getStringExtra("text");
         String postTitle = intent.getStringExtra("title");
         if (postTitle != null) {
-            items.add(new FeedItem(postTitle, R.drawable.tupac, postText, new Goal("Showing off the app", 10, 10, 10), new Profile("Tupac", "Tupac Shakur", 25, R.drawable.tupac)));
+            items.add(new FeedItem(postTitle, R.drawable.tupac, postText, new Goal("Showing off the app", 1337, 10, 10), new Profile("Tupac", "Tupac Shakur", 25, R.drawable.tupac)));
         }
 
         mFeed.setAdapter(new FeedAdapter(this, items));
