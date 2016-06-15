@@ -102,7 +102,6 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
         } else {
             Toast.makeText(this, "Count sensor not available!", Toast.LENGTH_LONG).show();
         }
-
     }
 
     @Override
@@ -126,6 +125,7 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
     public void startTimer() {
         resetTimer();
         mChronometer.start();
+
         mConfirm.setVisibility(View.VISIBLE);
     }
 
@@ -148,6 +148,10 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
             default:
                 return "00:00";
         }
+    }
+
+    public void playStartSequence() {
+
     }
 
     public double getSprintTarget(String difficulty, double targetTime) {
