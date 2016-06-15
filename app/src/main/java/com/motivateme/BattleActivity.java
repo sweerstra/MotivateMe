@@ -30,7 +30,7 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
     private SensorManager sensorManager;
     private TextView mSteps;
     private ImageView mPicture;
-    private boolean hasWon;
+    private int steps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +89,7 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
         mConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hasWon = true;
-                endBattle();
-                stopTimer();
+                endBattle(true);
             }
         });
 
@@ -103,10 +101,11 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
         });
     }
 
-    public void endBattle() {
+    public void endBattle(boolean result) {
+        stopTimer();
         startActivity(new Intent(BattleActivity.this, ProgressActivity.class)
                 .putExtra("time", mChronometer.getText())
-                .putExtra("result", hasWon));
+                .putExtra("result", result));
     }
 
     @Override
@@ -132,7 +131,11 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (activityRunning) {
-            mSteps.setText(String.valueOf(Math.round(event.values[0])));
+            steps++;
+            if (steps == 100) {
+                endBattle(true);
+            }
+            mSteps.setText(String.valueOf(steps));
         }
     }
 
@@ -153,7 +156,6 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
                 mConfirm.setVisibility(View.VISIBLE);
             }
         });
-
     }
 
     public void stopTimer() {
@@ -200,9 +202,7 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
     public void endTimeReached(Chronometer chronometer) {
         String targetText = "00:" + target;
         if (chronometer.getText().equals(targetText)) {
-            stopTimer();
-            hasWon = false;
-            endBattle();
+            endBattle(false);
             chronometer.setTextColor(getResources().getColor(R.color.colorAccent));
         }
 
