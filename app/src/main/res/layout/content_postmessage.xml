@@ -25,13 +25,25 @@
             android:src="@drawable/imageview_border" />
 
         <EditText
-            android:id="@+id/editTextPost"
+            android:id="@+id/editTextPostTitle"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginEnd="40dp"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/colorAccent"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/editTextPost"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/colorAccent"
             android:textColor="@color/white" />
 
         <LinearLayout
@@ -39,15 +51,6 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal">
 
-            <Button
-                android:id="@+id/btnImage"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorAccent"
-                android:gravity="center"
-                android:text="@string/post"
-                android:textColor="@color/white" />
         </LinearLayout>
 
     </LinearLayout>
