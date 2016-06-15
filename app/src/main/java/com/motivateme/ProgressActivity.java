@@ -1,13 +1,11 @@
 package com.motivateme;
 
-import android.animation.ObjectAnimator;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 public class ProgressActivity extends AppCompatActivity {
 
@@ -18,10 +16,28 @@ public class ProgressActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Intent i = getIntent();
-        Goal goal = (Goal) i.getSerializableExtra("goal");
+        Intent current = getIntent();
 
-        TextView mProgressText = (TextView) findViewById(R.id.progressText);
+        new AlertDialog.Builder(getBaseContext())
+                .setTitle("Battle result")
+                .setMessage(current.getBooleanExtra("result", false)
+                        ? "Well done! You've won the battle!\nPlay Again?"
+                        : "Too bad! You lost.\nPlay Again?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(ProgressActivity.this, MainActivity.class));
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+
+
+        /*TextView mProgressText = (TextView) findViewById(R.id.progressText);
         mProgressText.setText(String.format("%s/%s", goal.getCurrent(), goal.getTarget()));
 
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -31,7 +47,7 @@ public class ProgressActivity extends AppCompatActivity {
         animation.setInterpolator(new DecelerateInterpolator());
         animation.start();
 
-        TextView mLevel = (TextView) findViewById(R.id.tvGoalLevel);
+        TextView mLevel = (TextView) findViewById(R.id.tvGoalLevel);*/
 
     }
 

@@ -90,7 +90,6 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
                 startActivity(new Intent(BattleActivity.this, ProgressActivity.class)
                         .putExtra("time", mChronometer.getText()));
                 stopTimer();
-
             }
         });
 
