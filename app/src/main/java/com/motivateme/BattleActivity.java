@@ -183,15 +183,16 @@ public class BattleActivity extends AppCompatActivity implements Chronometer.OnC
     }
 
     public void animate(int targetTime) {
-        TranslateAnimation animation = new TranslateAnimation(0.0f, 800.0f,
+        TranslateAnimation animation = new TranslateAnimation(0.0f, 850.0f,
                 0.0f, 0.0f);          //  new TranslateAnimation(xFrom,xTo, yFrom,yTo)
         animation.setDuration(targetTime * 1000);  // animation duration
         mTarget.startAnimation(animation);  // start animation
+        //mTarget.clearAnimation();
     }
 
     @Override
     public void onChronometerTick(Chronometer chronometer) {
-        if (chronometer.getText().equals("00:" + target)) {
+        if (mChronometer.getText().equals("00:" + target)) {
             stopTimer();
             mChronometer.setTextColor(getResources().getColor(R.color.colorAccent));
             SoundMethod method = new SoundMethod();
