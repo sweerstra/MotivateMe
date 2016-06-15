@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
@@ -29,6 +30,7 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
     private SensorManager sensorManager;
     private TextView mSteps;
     private ImageView mPicture;
+    private boolean hasWon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +89,8 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
         mConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BattleActivity.this, ProgressActivity.class)
-                        .putExtra("time", mChronometer.getText()));
+                hasWon = true;
+                endBattle();
                 stopTimer();
             }
         });
@@ -99,6 +101,12 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
                 endTimeReached(chronometer);
             }
         });
+    }
+
+    public void endBattle() {
+        startActivity(new Intent(BattleActivity.this, ProgressActivity.class)
+                .putExtra("time", mChronometer.getText())
+                .putExtra("result", hasWon));
     }
 
     @Override
@@ -133,20 +141,19 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
     }
 
     public void startTimer() {
-        /*SoundMethod method = new SoundMethod();
+        SoundMethod method = new SoundMethod();
         method.soundPlayer(getBaseContext(), R.raw.start_sequence_cut);
         method.start();
         method.getPlayer().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                //comes here
-
+                resetTimer();
+                mChronometer.start();
+                animate(animationTime);
+                mConfirm.setVisibility(View.VISIBLE);
             }
-        });*/
-        resetTimer();
-        mChronometer.start();
-        animate(animationTime);
-        mConfirm.setVisibility(View.VISIBLE);
+        });
+
     }
 
     public void stopTimer() {
@@ -188,17 +195,15 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
         TranslateAnimation animation = new TranslateAnimation(0.0f, 800.0f, 0.0f, 0.0f);
         animation.setDuration(targetTime * 1000);
         mPicture.startAnimation(animation);
-        //mTarget.clearAnimation();
     }
 
     public void endTimeReached(Chronometer chronometer) {
         String targetText = "00:" + target;
         if (chronometer.getText().equals(targetText)) {
             stopTimer();
-            //chronometer.setTextColor(getResources().getColor(R.color.colorAccent));
-            /*SoundMethod method = new SoundMethod();
-            method.soundPlayer(getBaseContext(), R.raw.mario_dies);
-            method.start();*/
+            hasWon = false;
+            endBattle();
+            chronometer.setTextColor(getResources().getColor(R.color.colorAccent));
         }
 
         /*int halfway = Integer.parseInt(target) / 2;

@@ -1,9 +1,9 @@
 package com.motivateme;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -18,7 +18,7 @@ public class ProgressActivity extends AppCompatActivity {
 
         Intent current = getIntent();
 
-        new AlertDialog.Builder(getBaseContext())
+        new AlertDialog.Builder(this)
                 .setTitle("Battle result")
                 .setMessage(current.getBooleanExtra("result", false)
                         ? "Well done! You've won the battle!\nPlay Again?"
