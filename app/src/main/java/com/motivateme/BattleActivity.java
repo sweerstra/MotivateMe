@@ -13,10 +13,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.Chronometer;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +27,6 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
     private int animationTime;
     private SensorManager sensorManager;
     private TextView mSteps;
-    private ImageView mPicture;
     private int steps;
 
     @Override
@@ -44,7 +41,6 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
 
         mChronometer = (Chronometer) findViewById(R.id.cmTimer);
         Intent current = getIntent();
-        mPicture = (ImageView) findViewById(R.id.ivBattlePartnerPic);
 
         TextView mPartnerName = (TextView) findViewById(R.id.tvPartnerName);
         String name = current.getStringExtra("name");
@@ -52,23 +48,21 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
         TextView mDifficulty = (TextView) findViewById(R.id.tvDifficulty);
         String difficulty = current.getStringExtra("difficulty");
         mDifficulty.setText(difficulty);
-        mPicture.setImageResource(current.getIntExtra("picture", 0));
 
         mConfirm = (Button) findViewById(R.id.btnConfirmTime);
-        TextView mTargetTime = (TextView) findViewById(R.id.tvTargetTime);
         double targetTime = current.getDoubleExtra("seconds", 0);
         TextView mPartnerTime = (TextView) findViewById(R.id.tvPartnerTime);
-        mPartnerTime.setText(String.valueOf(targetTime));
 
         if (name.equals("Usain Bolt")) {
             animationTime = (int) Math.ceil(getSprintTarget(difficulty, targetTime));
             target = String.valueOf(animationTime);
-            mTargetTime.setText(String.valueOf(Math.round(getSprintTarget(difficulty, targetTime) * 100.0) / 100.0).replace(".", ":"));
+            mPartnerTime.setText(String.valueOf(Math.round(getSprintTarget(difficulty, targetTime) * 100.0) / 100.0).replace(".", ":"));
         } else {
-            mTargetTime.setText(getMarathonTarget(difficulty));
+            mPartnerTime.setText(getMarathonTarget(difficulty));
         }
 
-        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        //play button code
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.btnPlay);
         final boolean[] iconSwitch = {false};
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
@@ -152,7 +146,6 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
             public void onCompletion(MediaPlayer mp) {
                 resetTimer();
                 mChronometer.start();
-                animate(animationTime);
                 mConfirm.setVisibility(View.VISIBLE);
             }
         });
@@ -191,12 +184,6 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
             default:
                 return 0;
         }
-    }
-
-    public void animate(int targetTime) {
-        TranslateAnimation animation = new TranslateAnimation(0.0f, 800.0f, 0.0f, 0.0f);
-        animation.setDuration(targetTime * 1000);
-        mPicture.startAnimation(animation);
     }
 
     public void endTimeReached(Chronometer chronometer) {
