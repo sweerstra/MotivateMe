@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:orientation="vertical"
-        android:weightSum="1">
+        android:paddingBottom="80dp">
 
         <ImageView
             android:id="@+id/imgViewPost"
@@ -33,31 +33,22 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/colorAccent"
-            android:hint="Title"
+            android:hint="What are you doing right now?"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
 
-        <EditText
-            android:id="@+id/editTextPost"
+        <Button
+            android:id="@+id/btnChoosePicture"
             android:layout_width="match_parent"
-            android:layout_height="175dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="40dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/colorAccent"
-            android:hint="Text"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/raised_button"
+            android:text="Choose picture"
+            android:textColor="@color/white" />
 
         </LinearLayout>
 
-    </LinearLayout>
 </LinearLayout>

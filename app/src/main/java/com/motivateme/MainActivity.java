@@ -57,8 +57,7 @@ public class MainActivity extends AppCompatActivity
         if (postTitle != null) {
             items.add(new FeedItem(postTitle, R.drawable.tupac, postText, new Goal("Showing off the app", 1337, 10, 10), new Profile("Tupac", "Tupac Shakur", 25, R.drawable.tupac)));
         }
-        items.add(new FeedItem("\"I'm very rich\"", R.drawable.donald_trump_workout, "Golfing with Barrack", new Goal("My first hole in one", 800, 0, 1), new Profile("TheDonald", "Donald Trump", 69, R.drawable.donald_trump)));
-        items.add(new FeedItem("To succeed, you have to believe every night in your heart, that you\'re the best", R.drawable.john_cena_workout, "Bench pressing", new Goal("Bench press 500", 800, 485, 500), new Profile("HisNameJohnCena", "John Cena", 38, R.drawable.john_cena)));
+        items.add(new FeedItem("Gymming", R.drawable.paul, "In the gym right now", new Goal("Run 3000 metres", 800, 0, 1), new Profile("Paul", "Paul", 25, R.drawable.paul)));
         items.add(new FeedItem("Don't think about the start of the race. Think about the ending.", R.drawable.usain_bolt_workout, "Practicing in Kingston", new Goal("100 metres in less than 9.58 seconds", 1000, 9, 10), new Profile("Bolt", "Usain Bolt", 29, R.drawable.usain_bolt)));
         items.add(new FeedItem("Failure is not an option for me. Success is all I envision", R.drawable.mcgregor_workout, "Training to knock Nate Diaz out", new Goal("Do 150 push ups in a row", 700, 102, 150), new Profile("Notorious", "Conor McGregor", 27, R.drawable.mcgregor)));
 

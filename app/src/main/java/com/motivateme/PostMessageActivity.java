@@ -3,13 +3,13 @@ package com.motivateme;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -20,16 +20,13 @@ public class PostMessageActivity extends AppCompatActivity {
     private final static int PICK_PHOTO_CODE = 0;
     private final static int CAMERA_REQUESTED = 2;
     private static MainActivity main = new MainActivity();
-    private EditText postText;
     private EditText titleText;
-    private Drawable galleryImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postmessage);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        postText = (EditText) findViewById(R.id.editTextPost);
         titleText = (EditText) findViewById(R.id.editTextPostTitle);
         setSupportActionBar(toolbar);
 
@@ -37,6 +34,17 @@ public class PostMessageActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+
+        findViewById(R.id.btnChoosePicture).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK,
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, PICK_PHOTO_CODE);
+                }
+            }
+        });
     }
 
     @Override
@@ -55,7 +63,6 @@ public class PostMessageActivity extends AppCompatActivity {
         ImageView mPickPhoto = (ImageView) findViewById(R.id.imgViewPost);
         assert mPickPhoto != null;
         mPickPhoto.setBackground(selectedImage);
-        galleryImage = selectedImage;
     }
 
     @Override
@@ -68,18 +75,16 @@ public class PostMessageActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add_picture:
-                //make the user pick a specific photo
                 Intent intent = new Intent(Intent.ACTION_PICK,
                         MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 if (intent.resolveActivity(getPackageManager()) != null) {
-                    //bring up gallery to select a photo
                     startActivityForResult(intent, PICK_PHOTO_CODE);
                 }
                 return true;
             case R.id.action_add_post:
                 Intent intent1 = new Intent(this, MainActivity.class);
-                intent1.putExtra("text", postText.getText().toString());
-                intent1.putExtra("title", titleText.getText().toString());
+                intent1.putExtra("text", titleText.getText().toString());
+                intent1.putExtra("title", "hardcoded");
                 startActivity(intent1);
             default:
                 return super.onOptionsItemSelected(item);
