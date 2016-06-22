@@ -49,15 +49,7 @@
                         android:layout_height="100dp"
                         android:layout_weight="1"
                         android:scaleType="fitStart"
-                        android:src="@drawable/donald_trump" />
-
-                    <ImageView
-                        style="@style/horizontal_margin"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:scaleType="fitStart"
-                        android:src="@drawable/john_cena" />
+                        android:src="@drawable/paul" />
 
                     <ImageView
                         style="@style/horizontal_margin"
@@ -81,7 +73,7 @@
                         android:layout_height="100dp"
                         android:layout_weight="1"
                         android:scaleType="fitStart"
-                        android:src="@drawable/mcgregor" />
+                        android:src="@drawable/paul" />
 
                 </LinearLayout>
             </HorizontalScrollView>

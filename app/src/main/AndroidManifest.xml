@@ -20,28 +20,30 @@
         <activity
             android:name=".LoginActivity"
             android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ViewFeedActivity"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProgressActivity"
             android:label="@string/title_activity_progress"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".GoalsActivity"
-            android:label="@string/title_activity_goals"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ChallengeYourselfActivity"
             android:label="@string/title_activity_challenge_yourself"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BattleAthleteActivity"
@@ -52,6 +54,7 @@
         <activity
             android:name=".PostMessageActivity"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BattleActivity"
