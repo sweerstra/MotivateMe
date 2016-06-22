@@ -57,9 +57,12 @@ public class MainActivity extends AppCompatActivity
         if (postTitle != null) {
             items.add(new FeedItem(postTitle, R.drawable.tupac, postText, new Goal("Showing off the app", 1337, 10, 10), new Profile("Tupac", "Tupac Shakur", 25, R.drawable.tupac)));
         }
-        items.add(new FeedItem("Gymming", R.drawable.paul, "In the gym right now", new Goal("Run 3000 metres", 800, 0, 1), new Profile("Paul", "Paul", 25, R.drawable.paul)));
+
+        items.add(new FeedItem("Failure is not an option for me. Success is all I envision", R.drawable.matt, "In the gym :)", new Goal("Do 150 push ups in a row", 700, 102, 150), new Profile("Notorious", "Jim", 27, R.drawable.jim)));
+        items.add(new FeedItem("Gymming", R.drawable.paul, "Playing basketball", new Goal("Run 3000 metres", 800, 0, 1), new Profile("Paul", "Paul", 25, R.drawable.paul)));
         items.add(new FeedItem("Don't think about the start of the race. Think about the ending.", R.drawable.usain_bolt_workout, "Practicing in Kingston", new Goal("100 metres in less than 9.58 seconds", 1000, 9, 10), new Profile("Bolt", "Usain Bolt", 29, R.drawable.usain_bolt)));
-        items.add(new FeedItem("Failure is not an option for me. Success is all I envision", R.drawable.mcgregor_workout, "Training to knock Nate Diaz out", new Goal("Do 150 push ups in a row", 700, 102, 150), new Profile("Notorious", "Conor McGregor", 27, R.drawable.mcgregor)));
+        items.add(new FeedItem("Failure is not an option for me. Success is all I envision", R.drawable.mcgregor_workout, "Training session", new Goal("Do 150 push ups in a row", 700, 102, 150), new Profile("Notorious", "Conor McGregor", 27, R.drawable.mcgregor)));
+        items.add(new FeedItem("Failure is not an option for me. Success is all I envision", R.drawable.matt, "Jogging in the park", new Goal("Do 150 push ups in a row", 700, 102, 150), new Profile("Notorious", "Matt", 27, R.drawable.matt)));
 
         mFeed.setAdapter(new FeedAdapter(this, items));
         mFeed.setOnItemClickListener(new AdapterView.OnItemClickListener() {

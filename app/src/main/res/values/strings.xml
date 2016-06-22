@@ -24,4 +24,5 @@
     <string name="search_hint">search through profiles</string>
     <string name="battle_settings_mid_race_results">During the race you will hear and see the distance your battle partner has travelled</string>
     <string name="title_activity_battle">Your Battle</string>
+    <string name="title_activity_battle_result">Your Result</string>
 </resources>

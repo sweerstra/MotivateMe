@@ -33,7 +33,6 @@
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
@@ -61,6 +60,10 @@
             android:label="@string/title_activity_battle"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BattleResultActivity"
+            android:label="@string/title_activity_battle_result"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

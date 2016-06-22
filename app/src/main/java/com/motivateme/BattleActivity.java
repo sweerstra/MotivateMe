@@ -26,7 +26,7 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
     private String target;
     private int animationTime;
     private SensorManager sensorManager;
-    private TextView mSteps;
+    //private TextView mSteps;
     private int steps;
 
     @Override
@@ -37,7 +37,7 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
         setSupportActionBar(toolbar);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mSteps = (TextView) findViewById(R.id.tvSteps);
+        //mSteps = (TextView) findViewById(R.id.tvSteps);
 
         mChronometer = (Chronometer) findViewById(R.id.cmTimer);
         Intent current = getIntent();
@@ -69,7 +69,7 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
             @Override
             public void onClick(View view) {
                 fab.setImageResource(iconSwitch[0]
-                        ? R.drawable.ic_play_circle_outline_black_24dp
+                        ? R.drawable.ic_play_arrow_black_24dp
                         : R.drawable.ic_stop_black_24dp);
                 if (iconSwitch[0]) {
                     stopTimer();
@@ -129,7 +129,7 @@ public class BattleActivity extends AppCompatActivity implements SensorEventList
             if (steps == 100) {
                 endBattle(true);
             }
-            mSteps.setText(String.valueOf(steps));
+            //mSteps.setText(String.valueOf(steps));
         }
     }
 
