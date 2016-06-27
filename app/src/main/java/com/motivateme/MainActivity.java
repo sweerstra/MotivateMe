@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
         String postText = intent.getStringExtra("text");
         String postTitle = intent.getStringExtra("title");
         if (postTitle != null) {
-            items.add(new FeedItem(postTitle, R.drawable.tupac, postText, new Goal("Showing off the app", 1337, 10, 10), new Profile("Tupac", "Tupac Shakur", 25, R.drawable.tupac)));
+            items.add(new FeedItem(postTitle, R.drawable.souf, postText, new Goal("Showing off the app", 1337, 10, 10), new Profile("Tupac", "Soufyan", 25, R.drawable.souf)));
         }
 
         items.add(new FeedItem("Failure is not an option for me. Success is all I envision", R.drawable.matt, "In the gym :)", new Goal("Do 150 push ups in a row", 700, 102, 150), new Profile("Notorious", "Jim", 27, R.drawable.jim)));
